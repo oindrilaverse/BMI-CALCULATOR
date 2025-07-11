@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Easy BMI Calculator</title>
+</head>
+<body>
+  <h1>BMI Calculator</h1>
+
+  <p>Weight (kg): <input type="number" id="weight"></p>
+  <p>Height (cm): <input type="number" id="height"></p>
+
+  <button onclick="calculateBMI()">Calculate BMI</button>
+
+  <h2 id="result"></h2>
+
+  <script>
+    function calculateBMI() {
+      var weight = document.getElementById("weight").value;
+      var height = document.getElementById("height").value;
+
+      if (weight === "" || height === "") {
+        alert("Please enter both weight and height");
+        return;
+      }
+
+      var heightInMeters = height / 100;
+      var bmi = weight / (heightInMeters * heightInMeters);
+      bmi = bmi.toFixed(1);
+
+      var message = "Your BMI is " + bmi;
+
+      document.getElementById("result").innerText = message;
+    }
+  </script>
+</body>
+</html>
